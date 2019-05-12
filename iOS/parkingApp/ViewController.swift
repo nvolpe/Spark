@@ -55,7 +55,7 @@ class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDel
         startButton = UIButton()
         startButton?.setTitle("Route me!", for: .normal)
         startButton?.translatesAutoresizingMaskIntoConstraints = false
-        startButton?.backgroundColor = .green
+        startButton?.backgroundColor = .blue
         startButton?.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         startButton?.addTarget(self, action: #selector(tappedButton(sender:)), for: .touchUpInside)
         startButton?.isHidden = true
@@ -99,11 +99,13 @@ class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDel
         let littleItaly = CLLocationCoordinate2D(latitude: 32.72429002861491, longitude: -117.16859724978133)
         let cortezHill = CLLocationCoordinate2D(latitude: 32.7209077439066, longitude: -117.15818774421552)
         let petcoPark = CLLocationCoordinate2D(latitude: 32.70954919516812, longitude: -117.15644246683928)
+        let ralphs = CLLocationCoordinate2D(latitude: 32.711709, longitude: -117.163294)
         
         let coordinates = [
             littleItaly,
             cortezHill,
-            petcoPark
+            petcoPark,
+            ralphs
         ]
         
         // lets randomize it between these 3 for super fun times.
@@ -111,7 +113,7 @@ class ViewController: UIViewController, MGLMapViewDelegate, CLLocationManagerDel
         
         // add original destination to the map, so they have a reference of how far they are
         
-        requestRoute(destination: coordinates[0])
+        requestRoute(destination: coordinates[3])
     }
     
     func requestRoute(destination: CLLocationCoordinate2D) {
